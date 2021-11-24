@@ -9,7 +9,7 @@ from headers_keys import (CONTRACHEQUE_ATE_DEZEMBRO_2019, CONTRACHEQUE_DEPOIS_DE
 import number
 
 
-def parse_employees(fn, chave_coleta, mes, ano):
+def parse_employees(fn, chave_coleta, categoria):
     employees = {}
     counter = 1
     for row in fn:
@@ -24,16 +24,14 @@ def parse_employees(fn, chave_coleta, mes, ano):
             membro.funcao = "-" if number.is_nan(row[3]) else row[3]
             membro.tipo = Coleta.ContraCheque.Tipo.Value("MEMBRO")
             membro.ativo = True
-            if int(ano) == 2018 or (int(ano) == 2019 and int(mes) < 7):
-                membro.remuneracoes.CopyFrom(
-                    cria_remuneracao(row, CONTRACHEQUE_ATE_DEZEMBRO_2019)
-                )
-            else:
-                membro.remuneracoes.CopyFrom(
-                    cria_remuneracao(row, CONTRACHEQUE_DEPOIS_DE_2020)
-                )
+            
+            membro.remuneracoes.CopyFrom(
+                cria_remuneracao(row, categoria)
+            )
+          
             employees[name] = membro
             counter += 1
+            
     return employees
 
 
@@ -83,7 +81,7 @@ def parse(data, chave_coleta, mes, ano):
     folha = Coleta.FolhaDePagamento()
     if int(ano) == 2018 or int(ano) == 2019:
         try:
-            employees.update(parse_employees(data.contracheque, chave_coleta, mes, ano))
+            employees.update(parse_employees(data.contracheque, chave_coleta, CONTRACHEQUE_ATE_DEZEMBRO_2019))
 
         except KeyError as e:
             sys.stderr.write(
@@ -92,7 +90,7 @@ def parse(data, chave_coleta, mes, ano):
             os._exit(1)
     else:
         try:
-            employees.update(parse_employees(data.contracheque, chave_coleta, mes, ano))
+            employees.update(parse_employees(data.contracheque, chave_coleta, CONTRACHEQUE_DEPOIS_DE_2020))
             update_employees(data.indenizatorias, employees, INDENIZACOES)
 
         except KeyError as e:
