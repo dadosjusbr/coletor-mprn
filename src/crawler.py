@@ -74,25 +74,25 @@ def links_remuneration(month, year):
             
             if month.zfill(2) == key.zfill(2):
                 link = baseURL + year + '/R0082/' + cod_2018[key] + '.ods'
-                links_type["Membros ativos"] = link
+                links_type["membros-ativos"] = link
          
     elif year == "2019":
         for key in cod_2019:
             if month.zfill(2) == key.zfill(2):
                 link = baseURL + year + '/R0082/' + cod_2019[key] + '.ods'
-                links_type["Membros ativos"] = link
+                links_type["membros-ativos"] = link
     
     elif year == "2020":
         for key in cod_2020:
             if month.zfill(2) == key.zfill(2):
                 link = baseURL + year + '/R0082/' + cod_2020[key] + '.ods'
-                links_type["Membros ativos"] = link
+                links_type["membros-ativos"] = link
     
     elif year == "2021":
         for key in cod_2021:
             if month.zfill(2) == key.zfill(2):
                 link = baseURL + year + '/R0082/' + cod_2021[key] + '.ods'
-                links_type["Membros ativos"] = link
+                links_type["membros-ativos"] = link
         
     return links_type
 
@@ -135,13 +135,13 @@ def links_other_funds(month, year):
         for key in cod_2020:
             if month.zfill(2) == key.zfill(2):
                 link = baseURL + year + '/R2167/' + cod_2020[key] + '.ods'
-                links_type["Membros ativos"] = link
+                links_type["membros-ativos"] = link
     
     elif year == "2021":
         for key in cod_2021:
             if month.zfill(2) == key.zfill(2):
                 link = baseURL +  year + '/R2167/' + cod_2021[key] + '.ods'
-                links_type["Membros ativos"] = link
+                links_type["membros-ativos"] = link
         
     return links_type
 
@@ -178,7 +178,7 @@ def crawl(year, month, output_path):
     for element in urls_other_funds:
         pathlib.Path(output_path).mkdir(exist_ok=True)
         file_name_indemnity = element + "-" + \
-            "Verbas Indenizatorias" + "-" + month + '-' + year + '.ods'
+            "verbas-indenizatorias" + "-" + month + '-' + year + '.ods'
         file_path_indemnity = output_path + "/" + file_name_indemnity
         download(urls_other_funds[element], file_path_indemnity)
         files.append(file_path_indemnity)
