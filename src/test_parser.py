@@ -14,7 +14,7 @@ class TestParser(unittest.TestCase):
         with open('output_test/expected_2018.json', 'r') as fp:
             expected = json.load(fp)
 
-        files = ['output_test/Membros ativos-contracheque-01-2018.ods']
+        files = ['output_test/membros-ativos-contracheque-01-2018.ods']
                  
         dados = load(files, '2018', '01')
         result_data = parse(dados, 'tjrn/01/2018', '01', '2018')
@@ -30,8 +30,8 @@ class TestParser(unittest.TestCase):
         with open('output_test/expected_2020.json', 'r') as fp:
             expected = json.load(fp)
 
-        files = ['output_test/Membros ativos-contracheque-02-2020.ods',
-                'output_test/Membros ativos-Verbas Indenizatorias-02-2020.ods',]
+        files = ['output_test/membros-ativos-contracheque-02-2020.ods',
+                'output_test/membros-ativos-verbas-indenizatorias-02-2020.ods',]
 
         dados = load(files, '2020', '02')
         result_data = parse(dados, 'tjrn/02/2020', '02', '2020')

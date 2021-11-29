@@ -4,8 +4,8 @@ from data import load
 
 
 file_names = [
-    "output_test/Membros ativos-contracheque-02-2020.ods",
-    "output_test/Membros ativos-Verbas Indenizatorias-02-2020.ods",
+    "output_test/membros-ativos-contracheque-02-2020.ods",
+    "output_test/membros-ativos-verbas-indenizatorias-02-2020.ods",
 ]
 
 
