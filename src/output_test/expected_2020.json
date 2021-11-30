@@ -49,28 +49,24 @@
                         "natureza": "D",
                         "categoria": "contracheque_12-2019_2021",
                         "item": "Contribuição Previdenciária",
-                        "valor": -3705.8,
-                        "tipoReceita": "O"
+                        "valor": -3705.8
                     },
                     {
                         "natureza": "D",
                         "categoria": "contracheque_12-2019_2021",
                         "item": "Imposto de Renda",
-                        "valor": -7271.78,
-                        "tipoReceita": "O"
+                        "valor": -7271.78
                     },
                     {
                         "natureza": "D",
                         "categoria": "contracheque_12-2019_2021",
-                        "item": "Retenção por Teto Constitucional",
-                        "tipoReceita": "O"
+                        "item": "Retenção por Teto Constitucional"
                     },
                     {
                         "natureza": "D",
                         "categoria": "contracheque_12-2019_2021",
                         "item": "Descontos diversos",
-                        "valor": -1790.46,
-                        "tipoReceita": "O"
+                        "valor": -1790.46
                     },
                     {
                         "categoria": "indenizações",

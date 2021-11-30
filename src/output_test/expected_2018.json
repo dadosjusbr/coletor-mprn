@@ -55,28 +55,24 @@
                         "natureza": "D",
                         "categoria": "contracheque_2018_12-2019",
                         "item": "Contribuição Previdenciária",
-                        "valor": -3184.23,
-                        "tipoReceita": "O"
+                        "valor": -3184.23
                     },
                     {
                         "natureza": "D",
                         "categoria": "contracheque_2018_12-2019",
                         "item": "Imposto de Renda",
-                        "valor": -6312.44,
-                        "tipoReceita": "O"
+                        "valor": -6312.44
                     },
                     {
                         "natureza": "D",
                         "categoria": "contracheque_2018_12-2019",
-                        "item": "Retenção por Teto Constitucional",
-                        "tipoReceita": "O"
+                        "item": "Retenção por Teto Constitucional"
                     },
                     {
                         "natureza": "D",
                         "categoria": "contracheque_2018_12-2019",
                         "item": "Descontos diversos",
-                        "valor": -877.57,
-                        "tipoReceita": "O"
+                        "valor": -877.57
                     }
                 ]
             }
