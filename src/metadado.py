@@ -1,8 +1,7 @@
-
 from coleta import coleta_pb2 as Coleta
 
 
-def captura(mes, ano):
+def captura(month, year):
     metadado = Coleta.Metadados()
     metadado.nao_requer_login = True
     metadado.nao_requer_captcha = True
@@ -14,11 +13,13 @@ def captura(mes, ano):
     metadado.tem_cargo = True
     metadado.receita_base = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
     metadado.despesas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
-    if int(ano) == 2018 or int(ano) == 2019:
+    metadado.formato_consistente = True
+    metadado.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
+    # Nessa data, são adicionadas as planilhas de verbas indenizatórias
+    if int(year) == 2020 and int(month) == 1:
         metadado.formato_consistente = False
-        metadado.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.AUSENCIA
-    else:
-        metadado.formato_consistente = True
-        metadado.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
-
+    # Para esses anos, é apenas colocado o total, e não detalhado as verbas indenizatórias
+    if int(year) == 2018 or int(year) == 2019:
+        metadado.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.SUMARIZADO
+        
     return metadado
