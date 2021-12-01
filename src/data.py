@@ -56,10 +56,10 @@ class Data:
 
         if not (
             os.path.isfile(
-                f"./output/membros-ativos-contracheque-{self.month}-{self.year}.ods"
+                f"/output/membros-ativos-contracheque-{self.month}-{self.year}.ods"
             )
             or os.path.isfile(
-                f"./output/membros-ativos-verbas-indenizatorias-{self.month}-{self.year}.ods"
+                f"/output/membros-ativos-verbas-indenizatorias-{self.month}-{self.year}.ods"
             )
         ):
             sys.stderr.write(f"Não existe planilhas para {self.month}/{self.year}.")
@@ -82,7 +82,7 @@ class Data_2018:
 
         if not (
             os.path.isfile(
-                f"./output/membros-ativos-contracheque-{self.month}-{self.year}.ods"
+                f"/output/membros-ativos-contracheque-{self.month}-{self.year}.ods"
             )
         ):
             sys.stderr.write(f"Não existe planilha para {self.month}/{self.year}.")
