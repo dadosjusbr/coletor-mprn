@@ -16,7 +16,7 @@ class TestParser(unittest.TestCase):
 
         files = ['output_test/membros-ativos-contracheque-01-2018.ods']
                  
-        dados = load(files, '2018', '01')
+        dados = load(files, '2018', '01', './output')
         result_data = parse(dados, 'tjrn/01/2018', '01', '2018')
         # Converto o resultado do parser, em dict
         result_to_dict = MessageToDict(result_data)
@@ -33,7 +33,7 @@ class TestParser(unittest.TestCase):
         files = ['output_test/membros-ativos-contracheque-02-2020.ods',
                 'output_test/membros-ativos-verbas-indenizatorias-02-2020.ods',]
 
-        dados = load(files, '2020', '02')
+        dados = load(files, '2020', '02', './output')
         result_data = parse(dados, 'tjrn/02/2020', '02', '2020')
         # Converto o resultado do parser, em dict
         result_to_dict = MessageToDict(result_data)

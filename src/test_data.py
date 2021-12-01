@@ -14,7 +14,7 @@ class TestData(unittest.TestCase):
     def test_validate_existence(self):
         STATUS_DATA_UNAVAILABLE = 4
         with self.assertRaises(SystemExit) as cm:
-            dados = load(file_names, "2021", "01")
+            dados = load(file_names, '2021', '01' , './output')
             dados.validate()
         self.assertEqual(cm.exception.code, STATUS_DATA_UNAVAILABLE)
 
