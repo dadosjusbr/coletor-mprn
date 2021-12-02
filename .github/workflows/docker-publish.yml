@@ -33,10 +33,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      
+      # Installs dependencies from requirements.txt
+      - name: Install dependencies
+        run: pip3 install -r requirements.txt
 
       # Running all tests
       - name: Running tests
-        run: sudo python3 -m unittest discover -s ../../src -p 'test_*.py'
+        run: python3 -m unittest discover -s ./src -p 'test_*.py'
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
