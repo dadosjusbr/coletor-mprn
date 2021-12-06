@@ -5,7 +5,7 @@ import pathlib
 import datetime
 
 baseURL = "http://transparencia.mprn.mp.br/Arquivos/C0007/"
-
+STATUS_DATA_UNAVAILABLE = 4
 
 def links_remuneration(month, year):
     # A formação do link possui um código referente a cada mês
@@ -140,8 +140,12 @@ def links_other_funds(month, year):
     elif year == "2021":
         for key in cod_2021:
             if month.zfill(2) == key.zfill(2):
-                link = baseURL +  year + '/R2167/' + cod_2021[key] + '.ods'
-                links_type["membros-ativos"] = link
+                if cod_2021[key] == "":
+                    sys.stderr.write(f"Não existe planilha para {month}/{year}.")
+                    sys.exit(STATUS_DATA_UNAVAILABLE)
+                else:
+                    link = baseURL +  year + '/R2167/' + cod_2021[key] + '.ods'
+                    links_type["membros-ativos"] = link
         
     return links_type
 
