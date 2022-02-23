@@ -67,6 +67,9 @@ def links_remuneration(month, year):
         '11': "54509",
         '12': "54602",
     }
+    cod_2022 = {
+        '1': '54696',
+    }
     links_type = {}
     link = ""
     if year == "2018":
@@ -92,6 +95,12 @@ def links_remuneration(month, year):
         for key in cod_2021:
             if month.zfill(2) == key.zfill(2):
                 link = baseURL + year + '/R0082/' + cod_2021[key] + '.ods'
+                links_type["membros-ativos"] = link
+
+    elif year == "2022":
+        for key in cod_2021:
+            if month.zfill(2) == key.zfill(2):
+                link = baseURL + year + '/R0082/' + cod_2022[key] + '.ods'
                 links_type["membros-ativos"] = link
         
     return links_type
@@ -131,6 +140,9 @@ def links_other_funds(month, year):
         '11': "54465",
         '12': "54580",
     }
+    cod_2022 = {
+        '1': "54688",
+    }
     if year == "2020":
         for key in cod_2020:
             if month.zfill(2) == key.zfill(2):
@@ -145,6 +157,16 @@ def links_other_funds(month, year):
                     sys.exit(STATUS_DATA_UNAVAILABLE)
                 else:
                     link = baseURL +  year + '/R2167/' + cod_2021[key] + '.ods'
+                    links_type["membros-ativos"] = link
+
+    elif year == "2022":
+        for key in cod_2022:
+            if month.zfill(2) == key.zfill(2):
+                if cod_2022[key] == "":
+                    sys.stderr.write(f"Não existe planilha para {month}/{year}.")
+                    sys.exit(STATUS_DATA_UNAVAILABLE)
+                else:
+                    link = baseURL +  year + '/R2167/' + cod_2022[key] + '.ods'
                     links_type["membros-ativos"] = link
         
     return links_type
